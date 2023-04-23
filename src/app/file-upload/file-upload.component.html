@@ -1,0 +1,4 @@
+<label>
+    <span>{{fileName || "No file uploaded yet."}}</span>
+    <input type="file" id="fileInput" formControlName="file" (change)="handleChange($event)">
+</label>

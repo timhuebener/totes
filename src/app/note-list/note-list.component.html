@@ -1,0 +1,9 @@
+<div *ngIf="!isLoading">
+    <div *ngFor="let record of records">
+        <app-note [note]="record"></app-note>
+    </div>
+</div>
+
+<div *ngIf="isLoading">
+    loading notes...
+</div>
