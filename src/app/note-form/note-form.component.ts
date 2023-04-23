@@ -25,11 +25,11 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
 export class NoteFormComponent {
   public isLoading = false;
   public noteForm = new FormGroup({
-    title: new FormControl('', {
+    title: new FormControl('title', {
       nonNullable: true,
       validators: [],
     }),
-    body: new FormControl('', {
+    body: new FormControl('note', {
       nonNullable: true,
       validators: [],
     }),

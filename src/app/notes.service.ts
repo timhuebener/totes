@@ -23,8 +23,6 @@ export class NotesService {
     formData.append('author', pb.authStore.model?.id!);
     formData.append('lastViewed', date.toISOString());
 
-    console.log(formData.get('attachment'));
-
     return await pb.collection('notes').create(formData);
   }
 

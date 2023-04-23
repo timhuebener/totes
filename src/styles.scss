@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: brunoAce;
+    src: url(./assets/Bruno_Ace/BrunoAce-Regular.ttf);
+}
+
+@font-face {
+    font-family: atkinson;
+    src: url(./assets/Atkinson-Hyperlegible-Font/WebFonts/TTF/Atkinson-Hyperlegible-Regular-102.ttf);
+}
+
+html{
+    font-family: brunoAce, Helvetica, sans-serif;
+}
