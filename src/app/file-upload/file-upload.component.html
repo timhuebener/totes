@@ -1,4 +1,7 @@
 <label>
-    <span>{{fileName || "No file uploaded yet."}}</span>
+    <a *ngIf="!fileName" mat-flat-button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="upload_file"></mat-icon>
+    </a>
+    <span *ngIf="fileName">{{fileName}}</span>
     <input type="file" id="fileInput" formControlName="file" (change)="handleChange($event)">
 </label>

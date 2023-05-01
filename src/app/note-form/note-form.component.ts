@@ -5,8 +5,12 @@ import {
   FormControl,
   FormsModule,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 import { NotesService } from '../notes.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
 
@@ -18,6 +22,10 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
     FormsModule,
     ReactiveFormsModule,
     FileUploadComponent,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
   ],
   templateUrl: './note-form.component.html',
   styleUrls: ['./note-form.component.scss'],
@@ -25,11 +33,11 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
 export class NoteFormComponent {
   public isLoading = false;
   public noteForm = new FormGroup({
-    title: new FormControl('title', {
+    title: new FormControl('', {
       nonNullable: true,
       validators: [],
     }),
-    body: new FormControl('note', {
+    body: new FormControl('', {
       nonNullable: true,
       validators: [],
     }),

@@ -1,9 +1,9 @@
-<div class="navbar">
-    <div class="left">
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
         <span>Totes</span>
-    </div>
 
-    <div class="right">
-        <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
-    </div>
-</div>
+        <span class="spacer"></span>
+
+        <button *ngIf="isLoggedIn" (click)="logout()" mat-button>Logout</button>
+    </mat-toolbar-row>
+</mat-toolbar>

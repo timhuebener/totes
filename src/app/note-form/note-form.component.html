@@ -1,24 +1,33 @@
 <div *ngIf="!isLoading" class="card">
     <!-- Form -->
-    <div class="note-form">
+    <mat-card>
         <form [formGroup]="noteForm" (ngSubmit)="submit()">
-            <div>
-                <input type="text" id="title" formControlName="title">
-            </div>
+            <mat-card-content>
+                <!-- <mat-form-field>
+                    <mat-label>title</mat-label>
+                    <input type="text" id="title" formControlName="title" matInput>
+                </mat-form-field> -->
 
-            <div>
-                <input type="text" id="body" formControlName="body">
-            </div>
+                <mat-form-field>
+                    <mat-label>note</mat-label>
+                    <textarea id="body" formControlName="body" matInput></textarea>
+                </mat-form-field>
 
-            <div>
-                <app-file-upload (newItemEvent)="onFileSelected($event)"></app-file-upload>
-            </div>
+            </mat-card-content>
 
-            <div>
-                <button type="submit">Create Note</button>
-            </div>
+            <mat-card-actions>
+                <div>
+                    <app-file-upload (newItemEvent)="onFileSelected($event)"></app-file-upload>
+                </div>
+
+                <span class="spacer"></span>
+
+                <div>
+                    <button type="submit" mat-flat-button color="primary">Create Note</button>
+                </div>
+            </mat-card-actions>
         </form>
-    </div>
+    </mat-card>
 </div>
 
 <!-- Loading -->

@@ -1,5 +1,8 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 import { Record } from 'pocketbase';
 import { NotesService } from '../notes.service';
 import { environment } from 'src/env';
@@ -7,7 +10,7 @@ import { environment } from 'src/env';
 @Component({
   selector: 'app-note',
   standalone: true,
-  imports: [CommonModule, NgIf],
+  imports: [CommonModule, NgIf, MatCardModule, MatButtonModule],
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.scss'],
 })
