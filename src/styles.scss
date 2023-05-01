@@ -9,6 +9,19 @@
     src: url(./assets/Atkinson-Hyperlegible-Font/WebFonts/TTF/Atkinson-Hyperlegible-Regular-102.ttf);
 }
 
-html{
-    font-family: brunoAce, Helvetica, sans-serif;
+html, body{
+    background-color: black;
+    color: white;
+    
+    padding: 0;
+    margin: 0;
+
+    font-family: atkinson, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 820px) {
+.content {
+        margin-left: 30%;
+        margin-right: 30%
+    }
 }
