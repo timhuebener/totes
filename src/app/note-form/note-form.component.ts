@@ -62,6 +62,7 @@ export class NoteFormComponent {
       .create(data.title, data.body, this.attachment)
       .then(() => {
         this.isLoading = false;
+        this.attachment = undefined;
         this.noteForm.reset();
       })
       .catch((err: any) => {

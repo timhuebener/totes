@@ -13,7 +13,9 @@
     </mat-card-header>
 
     <!-- body -->
-    <mat-card-content>{{note?.['body']}}</mat-card-content>
+    <mat-card-content>
+        <markdown [data]="note?.['body']"></markdown>
+    </mat-card-content>
 
     <!-- footer -->
     <mat-card-actions>
