@@ -301,6 +301,13 @@ body {
     margin-right: 20vW;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 .success-snackbar {
   --mdc-snackbar-container-color: var(--success-color);
   --mat-mdc-snack-bar-button-color: white;
