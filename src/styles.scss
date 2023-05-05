@@ -19,14 +19,15 @@ $fonts-config: mat.define-typography-config(
   $headline-1: mat.define-typography-level(24px, 32px, 400),
   $headline-2: mat.define-typography-level(34px, 40px, 400),
   $headline-3: mat.define-typography-level(45px, 48px, 400),
-  $headline-4: mat.define-typography-level(56px, 56px, 400,0089em),
-  $headline-5: mat.define-typography-level(112px, 112px, 300,0134em),
-  $subtitle-2: mat.define-typography-level(16px, 28px, 400),
+  $headline-4: mat.define-typography-level(56px, 56px, 400),
+  $headline-5: mat.define-typography-level(112px, 112px, 300),
+  $headline-6: mat.define-typography-level(224px, 224px, 300),
   $subtitle-1: mat.define-typography-level(15px, 24px, 500),
-  $body-2: mat.define-typography-level(14px, 24px, 500),
+  $subtitle-2: mat.define-typography-level(16px, 28px, 400),
   $body-1: mat.define-typography-level(14px, 20px, 400),
-  $button: mat.define-typography-level(14px, 14px, 500),
+  $body-2: mat.define-typography-level(14px, 24px, 500),
   $caption: mat.define-typography-level(12px, 20px, 400),
+  $button: mat.define-typography-level(14px, 14px, 500),
 );
 
 // Foreground Elements
@@ -249,12 +250,14 @@ $dark-theme: mat.define-dark-theme(
 @include mat.all-component-typographies($dark-theme);
 @include mat.all-component-densities($dark-theme);
 @include mat.all-component-themes($dark-theme);
+@include mat.typography-hierarchy($dark-theme);
 
 @media (prefers-color-scheme: light) {
   @include mat.all-component-colors($light-theme);
   @include mat.all-component-typographies($light-theme);
   @include mat.all-component-densities($light-theme);
   @include mat.all-component-themes($light-theme);
+  @include mat.typography-hierarchy($light-theme);
 }
 
 // Handle buttons appropriately, with respect to line-height
