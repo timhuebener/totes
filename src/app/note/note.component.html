@@ -4,21 +4,23 @@
         <img src="{{baseUrl}}/api/files/{{note?.['collectionId']}}/{{note?.['id']}}/{{note?.['attachment']}}?thumb=0x200"
             alt="{{note?.['attachment']}}">
     </div>
-    <mat-card-header>
-        <span>{{note?.['title']}}</span>
+    <!-- <mat-card-header>
+        <span class="mat-headline-2">{{note?.['title']}}</span>
 
         <span class="spacer"></span>
 
-        <span>{{note?.['updated'] | date:'hh:mm | dd.MM.YY'}}</span>
-    </mat-card-header>
+        <span class="date mat-body-2">{{note?.['updated'] | date:'hh:mm | dd.MM.YY'}}</span>
+    </mat-card-header> -->
 
     <!-- body -->
     <mat-card-content>
-        <div [innerHtml]="note?.['body'] | markdown "></div>
+        <span class="mat-body-1" [innerHtml]="note?.['body'] | markdown"></span>
+
+        <span class="date mat-body-2">{{note?.['updated'] | date:'hh:mm | dd.MM.YY'}}</span>
     </mat-card-content>
 
     <!-- footer -->
-    <mat-card-actions>
+    <!-- <mat-card-actions>
         <button (click)="delete(note!.id)" mat-button>delete</button>
-    </mat-card-actions>
+    </mat-card-actions> -->
 </mat-card>

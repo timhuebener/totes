@@ -1,3 +1,29 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+mat-card {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+mat-card-content {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+
+    .date {
+        text-align: right;
+    }
+
+    @media screen and (max-width: 1250px) {
+        grid-template-columns: 4fr 1fr;
+    }
+
+    @media screen and (max-width: 950px) {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+::ng-deep p, ul {
+    margin: 0;
+}

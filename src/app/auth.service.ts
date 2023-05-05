@@ -13,8 +13,6 @@ export class AuthService {
 
   public isLoggedIn() {
     const isLoggedIn = this.authStatus();
-    console.log('is logged in: ', isLoggedIn);
-
     if (!isLoggedIn) {
       this.router.navigate(['/login']);
     }
