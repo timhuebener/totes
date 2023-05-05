@@ -10,7 +10,8 @@
 
                 <mat-form-field>
                     <mat-label>note</mat-label>
-                    <textarea id="body" formControlName="body" matInput></textarea>
+                    <textarea (keyup.enter)="submit()" id="body" formControlName="body" matInput
+                        appTextareaAutoresize></textarea>
                 </mat-form-field>
 
             </mat-card-content>
@@ -32,5 +33,5 @@
 
 <!-- Loading -->
 <div *ngIf="isLoading">
-    creating note ...
+    <mat-spinner></mat-spinner>
 </div>

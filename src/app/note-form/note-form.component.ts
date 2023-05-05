@@ -13,6 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 
 import { NotesService } from '../notes.service';
 import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TextareaAutoresizeDirective } from '../textarea-autoresize.directive';
 
 @Component({
   selector: 'app-note-form',
@@ -26,6 +28,8 @@ import { FileUploadComponent } from '../file-upload/file-upload.component';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatProgressSpinnerModule,
+    TextareaAutoresizeDirective,
   ],
   templateUrl: './note-form.component.html',
   styleUrls: ['./note-form.component.scss'],
@@ -55,8 +59,6 @@ export class NoteFormComponent {
 
     this.isLoading = true;
     const data = this.noteForm.getRawValue();
-
-    console.log(this.attachment);
 
     this.noteService
       .create(data.title, data.body, this.attachment)
