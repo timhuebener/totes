@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -45,11 +47,19 @@ export class LoginComponent {
     }),
   });
 
-  constructor(readonly auth: AuthService, readonly router: Router) {}
+  constructor(
+    readonly auth: AuthService,
+    readonly router: Router,
+    readonly snackBar: MatSnackBar
+  ) {}
 
   public login() {
     if (!this.loginForm.valid) {
-      console.info('the login form is not valid');
+      this.snackBar.open('the email is invalid', 'close', {
+        // duration: 900,
+        verticalPosition: 'top',
+        panelClass: 'warn-snackbar',
+      });
       return;
     }
 
@@ -58,8 +68,20 @@ export class LoginComponent {
     this.auth
       .login(data.email, data.password)
       .then(() => {
+        this.snackBar.open('Logged In', 'close', {
+          duration: 900,
+          verticalPosition: 'top',
+          panelClass: 'success-snackbar',
+        });
         this.router.navigate(['/home']);
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        this.isLoading = false;
+        this.snackBar.open('email or password was incorrect', 'close', {
+          duration: 900,
+          verticalPosition: 'top',
+          panelClass: 'error-snackbar',
+        });
+      });
   }
 }

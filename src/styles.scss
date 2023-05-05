@@ -198,6 +198,9 @@ body {
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
+
+  --success-color: #15a464; 
+  --warning-color:#eed52d;
 }
 
 $mat-warn: (
@@ -240,10 +243,17 @@ $dark-theme: mat.define-dark-theme(
   )
 );
 
-@include mat.all-component-typographies($config-or-theme: $fonts-config);
+@include mat.core();
+
+@include mat.all-component-colors($dark-theme);
+@include mat.all-component-typographies($dark-theme);
+@include mat.all-component-densities($dark-theme);
 @include mat.all-component-themes($dark-theme);
 
 @media (prefers-color-scheme: light) {
+  @include mat.all-component-colors($light-theme);
+  @include mat.all-component-typographies($light-theme);
+  @include mat.all-component-densities($light-theme);
   @include mat.all-component-themes($light-theme);
 }
 
@@ -282,4 +292,19 @@ body {
     margin-left: 20%;
     margin-right: 20%
   }
+}
+.success-snackbar {
+  --mdc-snackbar-container-color: var(--success-color);
+  --mat-mdc-snack-bar-button-color: white;
+}
+
+.warn-snackbar {
+  --mdc-snackbar-container-color: var(--warning-color);
+  --mdc-snackbar-supporting-text-color: #000000;
+  --mat-mdc-snack-bar-button-color: #000000;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: var(--warn-color);
+  --mat-mdc-snack-bar-button-color: white;
 }
