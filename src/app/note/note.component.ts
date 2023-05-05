@@ -2,16 +2,16 @@ import { CommonModule, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-// import { MarkdownModule } from 'ngx-markdown';
 
 import { Record } from 'pocketbase';
 import { NotesService } from '../notes.service';
 import { environment } from 'src/env';
+import { MarkdownPipe } from '../markdown.pipe';
 
 @Component({
   selector: 'app-note',
   standalone: true,
-  imports: [CommonModule, NgIf, MatCardModule, MatButtonModule],
+  imports: [CommonModule, NgIf, MatCardModule, MatButtonModule, MarkdownPipe],
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.scss'],
 })

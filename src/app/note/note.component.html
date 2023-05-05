@@ -14,8 +14,7 @@
 
     <!-- body -->
     <mat-card-content>
-        {{note?.['body']}}
-        <!-- <markdown [data]="note?.['body']"></markdown> -->
+        <div [innerHtml]="note?.['body'] | markdown "></div>
     </mat-card-content>
 
     <!-- footer -->
