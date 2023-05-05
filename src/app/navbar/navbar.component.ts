@@ -5,7 +5,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AuthService } from '../auth.service';
-import { pb } from '../pocketbase';
 
 @Component({
   selector: 'app-navbar',
@@ -17,10 +16,9 @@ import { pb } from '../pocketbase';
 export class NavbarComponent {
   constructor(readonly auth: AuthService, readonly router: Router) {}
 
-  public isLoggedIn = pb.authStore.isValid;
+  public isLoggedIn = this.auth.authStatus;
 
   logout() {
     this.auth.logout();
-    this.router.navigate(['/login']);
   }
 }

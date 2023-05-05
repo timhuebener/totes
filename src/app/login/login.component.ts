@@ -56,7 +56,7 @@ export class LoginComponent {
   public login() {
     if (!this.loginForm.valid) {
       this.snackBar.open('the email is invalid', 'close', {
-        // duration: 900,
+        duration: 900,
         verticalPosition: 'top',
         panelClass: 'warn-snackbar',
       });
@@ -73,6 +73,7 @@ export class LoginComponent {
           verticalPosition: 'top',
           panelClass: 'success-snackbar',
         });
+        this.auth.authStatus.set(true);
         this.router.navigate(['/home']);
       })
       .catch(() => {

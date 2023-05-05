@@ -1,9 +1,7 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Totes</span>
+    <span class="mat-headline-6">Totes</span>
 
-        <span class="spacer"></span>
+    <span class="spacer"></span>
 
-        <button *ngIf="isLoggedIn" (click)="logout()" mat-button>Logout</button>
-    </mat-toolbar-row>
+    <button *ngIf="isLoggedIn()" (click)="logout()" mat-button>Logout</button>
 </mat-toolbar>

@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { pb } from './pocketbase';
 import { Router } from '@angular/router';
+import { signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  public authStatus = signal(pb.authStore.isValid);
+
   constructor(readonly router: Router) {}
 
   public isLoggedIn() {
-    const isLoggedIn = pb.authStore.isValid;
+    const isLoggedIn = this.authStatus();
     console.log('is logged in: ', isLoggedIn);
 
     if (!isLoggedIn) {
@@ -24,7 +27,9 @@ export class AuthService {
   }
 
   public logout() {
-    return pb.authStore.clear();
+    pb.authStore.clear();
+    this.authStatus.set(false);
+    this.router.navigate(['/login']);
   }
 
   public async register(
